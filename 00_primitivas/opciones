@@ -1,0 +1,6 @@
+#!bin/bash
+# Muestra los carácteres
+echo $# # cantidad de parámetros
+echo $@ # Todos los parámetros como uno
+echo $* # Todos los parámetros por separado
+echo 
