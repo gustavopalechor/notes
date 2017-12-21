@@ -1,0 +1,5 @@
+para saber la posicion de un pixel en la ram
+para una resolucion de 1920x1080p
+(2,0) = 3840    2x1920
+(2,1) = 3841    2x1920  + 1
+(f,c) = fx1920  + c  -->  FDM --> Formula de direccionamiento de una matriz
