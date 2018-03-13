@@ -1,0 +1,5 @@
+Nos situamos en la carpeta donde lo hallamos descomprimido a continuacion:
+ 1.Compilamos el objeto(g++ coladoble.cpp -c -o coladoble.o)
+ 2.Compilamos el juego(g++ serpiente.cpp -c -o serpiente.o)
+ 3.Enlazamos usando las ncurses(g++ coladoble.o serpiente.o -o serpiente -lncurses)
+ 4.Jugamos(./serpiente)
