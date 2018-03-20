@@ -17,7 +17,7 @@
    *puntero=(char*) malloc ((rel + 1) * sizeof (char));
     strncpy(*puntero,nombre,rel);
     *(*puntero+rel)='\0';
-    
+  
     printf(" %s", *puntero);
 
     printf("\n");
