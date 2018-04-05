@@ -78,7 +78,7 @@ void inicio (char campo [V][H], int pelX, int pelY, int iniJug, int finJug, int 
     int pelX, pelY, iniJug, finJug, iniIa, finIa;
     char campo[V][H];
 
-    pelX = 37;
+    pelX = 36;
     pelY = 10;
 
     iniJug = 8;
