@@ -1,0 +1,14 @@
+p{
+	color: red;
+	font-size: 10px;
+}
+
+body{
+	background-color: yellow;
+}
+
+img{
+	width: 200px;
+	height: 150px;
+	padding-bottom: 20px;	
+}

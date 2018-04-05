@@ -1,0 +1,22 @@
+img
+{
+ width: 20%;
+}
+.Encabezados
+{
+	font-weight: bold;
+	font-size: 14pt;
+	font-family: Arial;
+}
+.PequeñosEncabezados
+{
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: 12pt;
+}
+.Nombre
+{
+	font-weight: bold;
+	font-size: 14pt;
+	font-family: Arial;
+}
