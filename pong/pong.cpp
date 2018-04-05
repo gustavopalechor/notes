@@ -12,8 +12,8 @@ void pelota(campo [V][H], int pelX, int pelY)
 #define H 75
 
 void borde(char campo[V][H]){
-      for(int i=0; i<H; i++){
-          for(int j=0; j<V; j++)
+      for(int i=0; i<V; i++){
+          for(int j=0; j<H; j++)
               if(i == 0 || i== V-1){
                   campo[i][j]='-';
               }
@@ -54,6 +54,16 @@ void raqIa(char campo[V][H], int iniIa, int finIa){
 void pelota(char campo[V][H], int pelX, int pelY){
      campo [pelY][pelX] = 'O';
 }
+
+void leerCamp(char campo [V][H]){
+	for(int i = 0; i<V; i++){
+		for(int j = 0; j<H; j++){
+			printf ("%c", campo[i][j]);
+		}
+	printf("\n");
+	}
+
+}
 void inicio (char campo [V][H], int pelX, int pelY, int iniJug, int finJug, int iniIa, int finIa){
     borde(campo);
     raqjug(campo, iniJug, finJug);
@@ -74,11 +84,11 @@ void inicio (char campo [V][H], int pelX, int pelY, int iniJug, int finJug, int 
     iniJug = 8;
     finJug = 12;
 
-    iniIa = 8;
-    finIa = 12;
+    iniIa = 2;
+    finIa = 18;
 
     inicio (campo, pelX, pelY, iniJug, finJug, iniIa, finIa);
-
+    leerCamp(campo);
 
     return EXIT_SUCCESS;
 }
