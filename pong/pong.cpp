@@ -68,7 +68,7 @@ void draw (char campo[V][H]){
 
 void input (char campo [V][H], int *pelX, int *pelY, int *iniJug, int *finJug, int *iniIa, int *finIa, int *modX, int *modY, int *modIa, int *gol){
     int i;
-    char *key;
+    char key;
     //Verificacion
         if (*pelY == 1 || *pelY == V-2){
             *modY *= -1;
@@ -113,15 +113,15 @@ void input (char campo [V][H], int *pelX, int *pelY, int *iniJug, int *finJug, i
        
        if ( 1 == 1 ){
 
-        fgets(key, 1, stdin); //
+          key = getch(); //
           
-          if(key == "8"){
+          if(key == '8'){
               if(*iniJug != 1){
                 *iniJug -= 1;
                 *finJug -= 1;
               }
           }
-          if(key == "2"){
+          if(key == '2'){
               if(*finJug != V-2){
                   *iniJug += 1;
                   *finJug += 1;
@@ -143,7 +143,7 @@ gol = 0;
            draw(campo); //Dibuja en pantalla
            input (campo, &pelX, &pelY, &iniJug, &finJug, &iniIa, &finIa, &modX, &modY, &modIa, &gol);         //Verificar y modificar las posiciones
            update (campo, pelX, pelY, iniJug, finJug, iniIa, finIa); //Actualizar la matriz campo
-           usleep(100000); //con esto dormimos el proceso durante un tiempo para que no se ejecute demasiad        o rapido
+           usleep(10000); //con esto dormimos el proceso durante un tiempo para que no se ejecute demasiad        o rapido
         }while (gol == 0);
 
 
