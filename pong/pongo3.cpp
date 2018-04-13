@@ -6,26 +6,6 @@
 #define H 75
 
 
-void borde(char campo[V][H]){
-    for(int i=0; i<V; i++){
-        for(int j=0; j<H; j++)
-            if(i == 0 || i== V-1){
-                campo[i][j]='-';
-            }
-            else if(j == 0 || j ==
-                    H-1){
-                campo [i][j] = '|';
-            }
-            else{
-                campo[i][j]=' ';
-            }
-
-    }
-
-
-}
-
-
 void raqjug(char campo[V][H], int iniJug, int finJug){
 
     for(int i = iniJug; i <=finJug; i++){
@@ -119,7 +99,7 @@ void input (char campo [V][H], int *pelX, int *pelY, int *iniJug, int *finJug, i
     if ( 1 == 1 ){
 
         //option = getch(); //
-        option = getc(stdin);
+        option = getch();
         if(option == 'a'){
             if(*iniJug != 1){
                 *iniJug -= 1;
@@ -136,7 +116,6 @@ void input (char campo [V][H], int *pelX, int *pelY, int *iniJug, int *finJug, i
 }
 
 void update (char campo [V][H], int pelX, int pelY, int iniJug, int finJug, int iniIa, int finIa){
-    borde(campo);
     raqjug(campo, iniJug, finJug);
     raqIa(campo, iniIa, finIa );
     pelota(campo,  pelX,  pelY);
@@ -155,9 +134,27 @@ void gameloop(char campo [V][H], int pelX, int pelY, int iniJug, int finJug, int
 
 
 }
+void cuadrado(char campo[V][H], int row, int col){
+    char c;
+    char v;
+    c=95;
+      for(int i=1; i<col; i++){
+          move(0,i);
+          printw("%c", c);
+          move(row-1,i);
+          printw("%c", c);
+      }
+    v=124;
+      for(int i=1; i<row; i++){
+          move(i,0);
+          printw("|");
+          move(i,col-1);
+          printw("|");
 
+      }
+
+}
 void inicio (char campo [V][H], int pelX, int pelY, int iniJug, int finJug, int iniIa, int finIa){
-    borde(campo);
     raqjug(campo, iniJug, finJug);
     raqIa(campo, iniIa, finIa );
     pelota(campo,  pelX,  pelY);
@@ -166,10 +163,16 @@ void inicio (char campo [V][H], int pelX, int pelY, int iniJug, int finJug, int 
 }
 
 int main(){
-
     int pelX, pelY, iniJug, finJug, iniIa, finIa; //variables posicion
     int modX, modY, modIa;
+    int row, col;
     char campo[V][H];
+    initscr();
+    getmaxyx(stdscr, row, col);
+    refresh();
+    getch();
+    cuadrado(campo, row, col);
+    endwin();
     //posición
     pelX = 36;
     pelY = 10;
