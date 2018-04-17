@@ -2,7 +2,12 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
-void cuadrado(int row, int col){
+struct Coordenada{
+    double x;
+    double y;
+};
+
+void Pintarcuadrado(int row, int col){
     for(int i=1; i<col; i++){
         move(0, i);
         printw("-");
@@ -17,32 +22,42 @@ void cuadrado(int row, int col){
         printw("|");
     }
 }
-void jugador(int row, int col, int iniJug, int finJug){
-    for(int i=3; i<4; i++){
-        for(int j=3; i<row-3; i++){
-            move(i, j);
-            printw("*");
+void Pintarjugador(int row, int col){
+    for(int j=3; j<=4; j++){
+        for(int i=14; i<=row-14; i++){
             
+            mvprintw(i, j, "*");
         }
-    
-
-
     }
 }
+void Pintarraqueta(int row, int col){
+    for(int i=col-4; i<=col-3; i++){
+        for(int j=3; j<=row-3; j++){
+            
+            mvprintw(j, i, "*");
+        }
+    }
+
+
+}
+void Pintarpelota(int row, int col){
+    mvprintw(row/2, col/2, "O");
+}
+
 int main(){
     int col; int row;//coordenadas ventana
-    int iniJug, finJug;
+    
 
-    iniJug=8;
-    finJug=12;
     initscr();
     getmaxyx(stdscr, row, col);
     refresh();
-    cuadrado(row, col);
-    jugador(row, col,  iniJug,finJug);
+    Pintarcuadrado(row, col);
+    Pintarjugador(row, col);
+    Pintarraqueta(row, col);
+    Pintarpelota(row,col);
     getch();
     endwin();
 
 return 0;
-    
+
 }
