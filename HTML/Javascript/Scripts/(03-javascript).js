@@ -1,0 +1,1 @@
+alert("JavaScipt off-line");
