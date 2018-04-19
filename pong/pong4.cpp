@@ -2,12 +2,15 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
+#define N 20
+#define I 30
+#define X 2
 struct Coordenada{
-    double x;
-    double y;
+    int x;
+    int y;
 };
 
-void Pintarcuadrado(int row, int col){
+void PintarCuadrado(int row, int col){
     for(int i=1; i<col; i++){
         move(0, i);
         printw("-");
@@ -22,39 +25,68 @@ void Pintarcuadrado(int row, int col){
         printw("|");
     }
 }
-void Pintarjugador(int row, int col){
-    for(int j=3; j<=4; j++){
-        for(int i=14; i<=row-14; i++){
-            
-            mvprintw(i, j, "*");
-        }
+void PintarRaqueta(struct Coordenada Raqueta[I], int col, int row){
+    for(int j=2; j<=row-2; j++){
+       Raqueta[j].x= col-4;
+       Raqueta[j].y= j;
+       mvprintw(Raqueta[j].y, Raqueta[j].x, "*");
+       Raqueta[j].x= col-3;
+       Raqueta[j].y= j;
+       mvprintw(Raqueta[j].y, Raqueta[j].x, "*");
     }
 }
-void Pintarraqueta(int row, int col){
-    for(int i=col-4; i<=col-3; i++){
-        for(int j=3; j<=row-3; j++){
+void PintarJugador(struct Coordenada Jugador[N], int row){
+    for(int i=14; i<=row-14; i++){
+        Jugador[i].x=3;
+        Jugador[i].y= i;
+        mvprintw(Jugador[i].y, Jugador[i].x, "*");
+        Jugador[i].x=4;
+        Jugador[i].y= i;
+        mvprintw(Jugador[i].y, Jugador[i].x, "*");
             
-            mvprintw(j, i, "*");
-        }
     }
 
 
 }
-void Pintarpelota(int row, int col){
-    mvprintw(row/2, col/2, "O");
+void PintarPelota(struct Coordenada Pelota[X],int row, int col){
+    Pelota[0].x= col/2;
+    Pelota[0].y=row/2;
+    mvprintw(Pelota[0].x, Pelota[0].y, "O");
+}
+
+/*void input(struct Coordenada Jugador[I], struct Coordenada Raqueta[I], int *modX, int *modY, int *modIa){
+
+    if()
+
+
+}
+void Modificar(struct Coordenada Jugador[I], struct Coordenada Raqueta[I], int col, int row, int modX, int modY, int modIa){
+    input(Jugador, Raqueta, &modX, &modY, &modIa);
+
+
+
+}*/
+void Pintar(struct Coordenada Jugador[I], struct Coordenada Raqueta[I], struct Coordenada Pelota[X], int col, int row){
+    PintarCuadrado(row,col);
+    PintarRaqueta(Raqueta, col, row);
+    PintarJugador(Jugador, row);
+    PintarPelota(Pelota, row, col);
 }
 
 int main(){
+    struct Coordenada Jugador[I];
+    struct Coordenada Raqueta[I];
+    struct Coordenada Pelota[X];
     int col; int row;//coordenadas ventana
-    
-
+    int modX= -1;
+    int modY= -1;
+    int modIa= -1;
     initscr();
     getmaxyx(stdscr, row, col);
+    
+    Pintar(Jugador, Raqueta, Pelota, col, row);
     refresh();
-    Pintarcuadrado(row, col);
-    Pintarjugador(row, col);
-    Pintarraqueta(row, col);
-    Pintarpelota(row,col);
+    //Modificar(Jugador, Raqueta, col, row, modX, modY, modIa);
     getch();
     endwin();
 
