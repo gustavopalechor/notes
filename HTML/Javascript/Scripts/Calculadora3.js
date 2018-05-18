@@ -33,5 +33,5 @@ function sumar() {
 	valorOperando2 = ObtenerOperando('Operando2');
 	
 	valor = valorOperando1 + valorOperando2;
-	miResultado.innerHTML = valorSuma;
+	miResultado.innerHTML = valor;
 }

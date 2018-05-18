@@ -5,7 +5,7 @@ function suma(){
 	var valor;
 	miDato1 = getElementById('Dato1');
 	miDato2 = getElementById('Dato2');
-	miResultadin = getElementById('Resultado');
+	miResultado = getElementById('Resultado');
 	miResultado = miDato1.value + miDato2.value;
 	miResultadin.innerHTML += "El resultado es: " + miResultado;
 }
