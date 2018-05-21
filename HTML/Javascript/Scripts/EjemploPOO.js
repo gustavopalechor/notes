@@ -7,6 +7,11 @@ class Contacto
 		this.telefono = t;
 	}
 
+	CambiarNombre(nuevoV)
+	{
+		this.nombre = nuevoT;
+	}
+
 	Escribir()
 	{
 		var resultado;
@@ -19,9 +24,23 @@ class Contacto
 	{
 		this.telefono = nuevoT;
 	}
-}
+//Objetos globales
+	var c1;
 	function CrearContacto() {
-		var c1 = new Contacto("Pepe", 1111),
-			c2 = new Contacto("Ana", 123123);
+		c1 = new Contacto("Pepe", 1111);
+		
 		c1.Escribir();
 	}
+
+	function ModificarContacto()
+	{
+		var valorNombre,
+			valorTelefono;
+
+		valorNombre = document.getElementById('Nombre').value;
+		valorTelefono = document.getElementById('Telefono').value;
+		c1.CambiarNombre(valorNombre);
+		c1.CambiarTelefono(valorTelefono);
+		c1.Escribir();
+	}
+}
