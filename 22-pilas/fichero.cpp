@@ -14,7 +14,7 @@
             contador++;
     }
     fseek(mi_tubo, 2, SEEK_END);
-    printf("Esta palabra es: %li\n", &ftell(mi_tubo));
+    printf("Esta palabra es: %li\n", ftell(mi_tubo));
     printf("El numero total de palabras son: %i", contador);
     fclose(mi_tubo);
     return EXIT_SUCCESS;
