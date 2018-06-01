@@ -12,7 +12,7 @@ void imprime(const char * letra){
     const char * const frase = "dabale arroz a la zorra";
     const char * letra = frase;
 
-    imprime(letra);
-
+    imprime(letra3);
+    printf("\n");
     return EXIT_SUCCESS;
 }
